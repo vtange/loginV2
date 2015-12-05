@@ -26,7 +26,7 @@ angular.module('myApp').factory('AuthService',['$q', '$http',function ($q, $http
       return user;
     }
 /*----------*/
-/* LOGIN    */
+/* LOGIN PROCESS   */
 /*----------*/
     function login(username, password) {
 
@@ -56,7 +56,7 @@ angular.module('myApp').factory('AuthService',['$q', '$http',function ($q, $http
 
     }
 /*----------*/
-/* LOGOUT    */
+/* LOGOUT PROCESS   */
 /*----------*/
     function logout() {
 
@@ -81,7 +81,7 @@ angular.module('myApp').factory('AuthService',['$q', '$http',function ($q, $http
 
     }
 /*----------*/
-/* REGISTER    */
+/* REGISTER PROCESS   */
 /*----------*/
     function register(username, password) {
 

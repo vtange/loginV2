@@ -1,3 +1,6 @@
+/*-------------*/
+/*LOGIN PROCESS B4 AND AFTR    */
+/*-------------*/
 angular.module('myApp').controller('loginController',['$scope', '$location', 'AuthService',function ($scope, $location, AuthService) {
 
     console.log(AuthService.getUserStatus());
@@ -9,7 +12,7 @@ angular.module('myApp').controller('loginController',['$scope', '$location', 'Au
       $scope.disabled = true;       //disable Login button to prevent double send
 
       // call login from service
-      AuthService.login($scope.loginForm.username, $scope.loginForm.password)
+      AuthService.login($scope.loginForm.username, $scope.loginForm.password)//<-----------PROCESS DONE BY SERVICES
         // handle success
         .then(function () {
           $location.path('/');      //redirect to home
@@ -27,7 +30,9 @@ angular.module('myApp').controller('loginController',['$scope', '$location', 'Au
     };
 
 }]);
-
+/*-------------*/
+/*LOGOUT PROCESS AFTR   */
+/*-------------*/
 angular.module('myApp').controller('logoutController',['$scope', '$location', 'AuthService',function ($scope, $location, AuthService) {
 
     $scope.logout = function () {
@@ -35,7 +40,7 @@ angular.module('myApp').controller('logoutController',['$scope', '$location', 'A
       console.log(AuthService.getUserStatus());
 
       // call logout from service
-      AuthService.logout()
+      AuthService.logout()//<-----------PROCESS DONE BY SERVICES
         .then(function () {
           $location.path('/login'); //back to Login page
         });
@@ -43,7 +48,9 @@ angular.module('myApp').controller('logoutController',['$scope', '$location', 'A
     };
 
 }]);
-
+/*-------------*/
+/*REGISTER PROCESS B4 AND AFTR   */
+/*-------------*/
 angular.module('myApp').controller('registerController',['$scope', '$location', 'AuthService',function ($scope, $location, AuthService) {
 
     console.log(AuthService.getUserStatus());
@@ -55,7 +62,7 @@ angular.module('myApp').controller('registerController',['$scope', '$location', 
       $scope.disabled = true;          //disable Login button to prevent double send
 
       // call register from service
-      AuthService.register($scope.registerForm.username, $scope.registerForm.password)
+      AuthService.register($scope.registerForm.username, $scope.registerForm.password)//<-----------PROCESS DONE BY SERVICES
         // handle success
         .then(function () {
           $location.path('/login');    // to Login page
