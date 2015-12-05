@@ -1,8 +1,6 @@
-angular.module('myApp').factory('AuthService',
-  ['$q', '$timeout', '$http',
-  function ($q, $timeout, $http) {
+angular.module('myApp').factory('AuthService',['$q', '$timeout', '$http',function ($q, $timeout, $http) {
 
-    // create user variable
+    // initiate user variable (activeUser)
     var user = null;
 
     // return available functions for use in controllers

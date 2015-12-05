@@ -3,12 +3,12 @@ var express = require('express'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    expressSession = require('express-session'),
+    expressSession = require('express-session'),                        //
     mongoose = require('mongoose'),
-    hash = require('bcrypt-nodejs'),
+    hash = require('bcrypt-nodejs'),                                    //
     path = require('path'),
-    passport = require('passport'),
-    localStrategy = require('passport-local' ).Strategy;
+    passport = require('passport'),                                     //
+    localStrategy = require('passport-local' ).Strategy;                //
 
 // mongoose
 mongoose.connect('mongodb://localhost/mean-auth');
