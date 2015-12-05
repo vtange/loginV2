@@ -5,7 +5,7 @@ angular.module('myApp').controller('loginController',['$scope', '$location', 'Au
     $scope.login = function () {
 
       // initial values
-      $scope.error = false;
+      $scope.error = false;         //hide error bar
       $scope.disabled = true;       //disable Login button to prevent double send
 
       // call login from service
@@ -18,7 +18,7 @@ angular.module('myApp').controller('loginController',['$scope', '$location', 'Au
         })
         // handle error
         .catch(function () {
-          $scope.error = true;
+          $scope.error = true;      //show error bar
           $scope.errorMessage = "Invalid username and/or password";
           $scope.disabled = false;  //reenable Login button
           $scope.loginForm = {};    //clear input fields
@@ -28,9 +28,7 @@ angular.module('myApp').controller('loginController',['$scope', '$location', 'Au
 
 }]);
 
-angular.module('myApp').controller('logoutController',
-  ['$scope', '$location', 'AuthService',
-  function ($scope, $location, AuthService) {
+angular.module('myApp').controller('logoutController',['$scope', '$location', 'AuthService',function ($scope, $location, AuthService) {
 
     $scope.logout = function () {
 
@@ -66,7 +64,7 @@ angular.module('myApp').controller('registerController',['$scope', '$location', 
         })
         // handle error
         .catch(function () {
-          $scope.error = true;
+          $scope.error = true;          //show error bar
           $scope.errorMessage = "Something went wrong!";
           $scope.disabled = false;     //reenable Login button
           $scope.registerForm = {};    //clear input fields
