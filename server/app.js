@@ -9,20 +9,24 @@ var express = require('express'),
     path = require('path'),
     passport = require('passport'),                                     //
     localStrategy = require('passport-local' ).Strategy;                //
-
+console.log("loaded all requires")
 // mongoose
+console.log("connect mongodb")
 mongoose.connect('mongodb://localhost/mean-auth');
 
 // user schema/model
-var User = require('./models/user.js');
+var userjs = require('./models/user.js');
 
 // create instance of express
+console.log("start app")
 var app = express();
 
 // require routes
+console.log("load routes")
 var routes = require('./routes/api.js');
-
+console.log("done load routes")
 // define middleware
+console.log("using middleware")
 app.use(express.static(path.join(__dirname, '../client'))); 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -33,16 +37,17 @@ app.use(require('express-session')({
     resave: false,
     saveUninitialized: false
 }));
+console.log("start passport")
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // configure passport
-passport.use(new localStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.use(new localStrategy(userjs.authenticate()));
+passport.serializeUser(userjs.serializeUser());
+passport.deserializeUser(userjs.deserializeUser());
 
 // routes
+console.log("using routes")
 app.use('/user/', routes);                                              //reqd for login logout
 
 // error handlers
