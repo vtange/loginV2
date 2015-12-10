@@ -2,7 +2,12 @@ var express = require('express'),
     router = express.Router(),
     passport = require('passport'),
     userjs = require('../models/user.js');
-
+/*----------*/
+/* OTHER ROUTES IN CLIENT/ROUTER.JS  */
+/*----------*/
+/*----------*/
+/* REGIST NEW USER  */
+/*----------*/
 console.log("    ROUTES/API JS")
 router.post('/register', function(req, res) {
   userjs.register(new userjs({ username: req.body.username }), req.body.password, function(err, account) {
@@ -15,7 +20,9 @@ router.post('/register', function(req, res) {
     });
   });
 });
-
+/*----------*/
+/* LOGIN USER  */
+/*----------*/
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     console.log("login " + user.username)
@@ -33,7 +40,9 @@ router.post('/login', function(req, res, next) {
     });
   })(req, res, next);
 });
-
+/*----------*/
+/* LOGOUT USER  */
+/*----------*/
 router.get('/logout', function(req, res) {
       console.log("logout")
   req.logout();

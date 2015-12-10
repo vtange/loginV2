@@ -2,7 +2,7 @@ var myApp = angular.module('myApp', ['ngRoute']);
 
 myApp.config(function ($routeProvider) {        //Determine what page to be shown and what controller
   $routeProvider
-    .when('/', {templateUrl: 'partials/home.html', access: {restricted: true}})
+    .when('/', {templateUrl: 'partials/home.html'})//when "/", send home html (controller within home)
     .when('/login', {
       templateUrl: 'partials/login.html',
       controller: 'loginController',
