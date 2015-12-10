@@ -3,7 +3,7 @@ var express = require('express'),
     passport = require('passport'),
     userjs = require('../models/user.js');
 
-console.log("IN API JS")
+console.log("    ROUTES/API JS")
 router.post('/register', function(req, res) {
   userjs.register(new userjs({ username: req.body.username }), req.body.password, function(err, account) {
     console.log("registering")
@@ -18,7 +18,7 @@ router.post('/register', function(req, res) {
 
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
-    console.log("login " + user)
+    console.log("login " + user.username)
     if (err) {
       return res.status(500).json({err: err});
     }
@@ -39,5 +39,5 @@ router.get('/logout', function(req, res) {
   req.logout();
   res.status(200).json({status: 'Bye!'});
 });
-console.log("OUT API JS")
+console.log("    ROUTES/API JS")
 module.exports = router;

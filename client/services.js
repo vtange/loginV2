@@ -3,7 +3,7 @@ angular.module('myApp').factory('AuthService',['$q', '$http',function ($q, $http
 /* USER STATE    */
 /*----------*/
     // initiate user variable (activeUser)
-    var user = null;
+    var user = false;
 
     // return available functions for use in controllers
     return ({
