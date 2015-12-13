@@ -1,7 +1,6 @@
 // dependencies
 var express = require('express'),
     logger = require('morgan'),
-    cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
     path = require('path');
@@ -29,7 +28,8 @@ app.use(bodyParser.json());                                         //bodyparser
 app.use(bodyParser.urlencoded({ extended: false }));                //bodyparser default
 
 //session stuff
-var expressSession = require('express-session');                    //
+var cookieParser = require('cookie-parser'),
+    expressSession = require('express-session');                    //
 app.use(cookieParser());
 app.use(require('express-session')({
     secret: 'keyboard cat',
@@ -50,7 +50,7 @@ passport.use(new localStrategy(userjs.authenticate()));
 passport.serializeUser(userjs.serializeUser());
 passport.deserializeUser(userjs.deserializeUser());
 
-// routes
+// routes for login logout register
 console.log("using routes")
 app.use('/user/', routes);                                              //reqd for login logout
 
