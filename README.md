@@ -1,1 +1,3 @@
-Blog Post -> http://mherman.org/blog/2015/07/02/handling-user-authentication-with-the-mean-stack
+Flawed due to how things are routed. you can skip ahead to "/" without logging in.
+
+no user check
