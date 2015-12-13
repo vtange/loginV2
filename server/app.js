@@ -4,8 +4,8 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    hash = require('bcrypt-nodejs'),                                //
     path = require('path');
+    
 console.log("loaded all requires")
 // mongoose
 console.log("connect mongodb")
@@ -23,7 +23,7 @@ console.log("done load routes")
 
 console.log("using middleware")
 app.use(express.static(path.join(__dirname, '../client')));         //middleware for static
-app.use(logger('dev'));                                             //console log all
+app.use(logger('dev'));                                             //console log all w morgan
 
 app.use(bodyParser.json());                                         //bodyparser default
 app.use(bodyParser.urlencoded({ extended: false }));                //bodyparser default
