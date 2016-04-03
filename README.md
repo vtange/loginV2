@@ -63,11 +63,11 @@ angular.module('myApp').controller('loginController',['$scope', '$location', 'Au
 
 SERVERSIDE
 
-==app.js==
+== app.js (main server file) ==
 var routes = require('./routes/api.js');
 app.use('/user/', routes);
 
-==./routes/api.js'==
+== ./routes/api.js' ==
 
 var express = require('express'),
     router = express.Router(),
